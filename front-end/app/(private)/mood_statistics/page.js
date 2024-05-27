@@ -62,9 +62,12 @@ const page = () => {
   const avgRatesMonthly = moodsMonthly?.map((item) => item.avg_rate);
   const colorsMonthly = moodsMonthly?.map((item) => item.color);
 
-  let maxCountMood = moodsMonthly?.reduce((prev, current) =>
-    prev.count > current.count ? prev : current
-  );
+  let maxCountMood;
+  if (moodsMonthly && moodsMonthly.length > 0) {
+    maxCountMood = moodsMonthly.reduce((prev, current) =>
+      prev.count > current.count ? prev : current
+    );
+  }
 
   if (errorMonthly instanceof Error) {
     <div> Error : {errorMonthly}</div>;
@@ -85,9 +88,13 @@ const page = () => {
   if (errorYearly instanceof Error) {
     return <div>Error : {errorYearly}</div>;
   }
-  let maxCountMoodYearly = moodsYearly?.reduce((prev, current) =>
-    prev.count > current.count ? prev : current
-  );
+
+  let maxCountMoodYearly;
+  if (moodsYearly && moodsYearly.length > 0) {
+    maxCountMoodYearly = moodsYearly.reduce((prev, current) =>
+      prev.count > current.count ? prev : current
+    );
+  }
   const labelsYearly = moodsMonthly?.map((item) => item.type_of_mood);
   const avgRatesYearly = moodsMonthly?.map((item) => item.avg_rate);
   const colorsYearly = moodsMonthly?.map((item) => item.color);

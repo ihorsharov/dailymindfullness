@@ -165,10 +165,10 @@ const HomePage = () => {
                             <div className='flex flex-row items-center bg-white max-w-[340px] px-[18px] py-[8px]  justify-center rounded-full'>
                                 <Image className="mr-[10px]" src={Sparkles} alt='Sparkles' />
                                 <span className='text-lg font-[700]'>
-                                    {data.title}
+                                    {data?.title}
                                 </span>
                             </div>
-                            <p className='font-normal text-base'>{data.content}</p>
+                            <p className='font-normal text-base'>{data?.content}</p>
                         </>
                         )}
                 </div>
